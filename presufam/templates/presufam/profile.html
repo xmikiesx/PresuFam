@@ -1,5 +1,35 @@
-{% extends "presufam/base.html" %}
+{% extends 'presufam/base.html' %}
+{% block title %}Profile{% endblock %}
 
 {% block content %}
-hello {{user.nombre}}
+<div class="col-sm-12">
+    <div class="col-sm-8">
+        <div class="table-profile">
+            <h2 align="center" class="text-success fa-2x">Mi Perfil</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Campo</th>
+                        <th>Dato</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> Nombre </td>
+                        <td>{{ user.nombre }}</td>
+                    </tr>
+                    <tr>
+                        <td> Apellido </td>
+                        <td>{{ user.apellido }}</td>
+                    </tr>
+                    <tr>
+                        <td> Email </td>
+                        <td>{{ user.email }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="{% url 'presufam:upd-user' user.id %}" class="btn btn-primary pull-left" role="button">Editar</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

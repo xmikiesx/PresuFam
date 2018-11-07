@@ -6,7 +6,7 @@ from django.views import generic
 
 from django.urls import reverse, reverse_lazy
 from .models import MyUser, Income, Category, Expense
-from .forms import MyUserUpdateForm, MyUserForm, SignInForm, IncomeForm, IncomeUpdateForm, ExpenseForm, ExpenseUpdateForm
+from .forms import MyUserUpdateForm, MyUserForm, SignInForm, IncomeForm, IncomeUpdateForm, ExpenseForm, ExpenseUpdateForm, CategoryForm
 
 from django.db.models import Func, Sum, Q
 
@@ -54,12 +54,10 @@ class SignUpView(View):
     form_class = MyUserForm
     template_name = 'presufam/sign-up.html'
 
-    # display blank form
     def get(self, request):
         form = self.form_class(None)
         return render(request, self.template_name, {'form': form})
 
-    # process form data
     def post(self, request):
         form = self.form_class(request.POST)
 
@@ -189,12 +187,10 @@ class ExpenseCreate(View):
     form_class = ExpenseForm
     template_name = 'presufam/manage-expense.html'
 
-    # display blank form
     def get(self, request):
         form = self.form_class(request.user, None)
         return render(request, self.template_name, {'form': form})
 
-    # process form data
     def post(self, request):
         form = self.form_class(request.user, request.POST)
 
@@ -256,3 +252,62 @@ class ExpenseIndexView(generic.ListView):
         context = super(ExpenseIndexView, self).get_context_data(**kwargs)
         context['texpense'] = Expense.objects.filter(user_id=us_id).aggregate(Sum('monto'))
         return context
+
+
+class CategoryIndexView(generic.ListView):
+    template_name = 'presufam/overview.html'
+    context_object_name = 'all_categories'
+    paginate_by = 2
+
+    def get_queryset(self):
+        return Category.objects.filter(user_id=self.request.session['id']).order_by('-nombre')
+
+    def get_context_data(self, **kwargs):
+        db = DB()
+        total = float(db.savings_per_user(self.request.session['id']))
+
+        context = super(CategoryIndexView, self).get_context_data(**kwargs)
+        context['savings'] = total
+        return context
+
+
+class CategoryDetailView(generic.DetailView):
+    model = Category
+    template_name = 'presufam/detail.html'
+
+
+class CategoryCreate(View):
+    form_class = CategoryForm
+    template_name = 'presufam/manage-category.html'
+
+    # display blank form
+    def get(self, request):
+        form = self.form_class(None)
+        return render(request, self.template_name, {'form': form})
+
+    # process form data
+    def post(self, request):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            category = form.save(commit=False)
+            category.user = request.user
+            cnt = Category.objects.filter(user_id=request.user.id, nombre=category.nombre).count()
+
+            if cnt == 0:
+                category.save()
+
+            return redirect('presufam:index')
+
+        return render(request, self.template_name, {'form': form})
+
+
+class CategoryUpdate(UpdateView):
+    model = Category
+    template_name = 'presufam/manage-category.html'
+    form_class = CategoryForm
+    success_url = reverse_lazy('presufam:index')
+
+
+class CategoryDelete(DeleteView):
+    model = Category
+    success_url = reverse_lazy('presufam:index')

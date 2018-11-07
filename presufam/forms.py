@@ -15,9 +15,9 @@ class MyUserForm(forms.ModelForm):
         fields = ['nombre', 'apellido', 'email', 'password']
 
         widgets = {
-            'nombre': forms.TextInput(attrs={'class': 'form-control'}),  # name field of Class User
-            'apellido': forms.TextInput(attrs={'class': 'form-control'}),  # last_name field of Class User
-            'email': forms.TextInput(attrs={'class': 'form-control'}),  # email field of Class User
+            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
+            'apellido': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.TextInput(attrs={'class': 'form-control'}),
         }
 
     def clean_email(self):
@@ -43,9 +43,9 @@ class MyUserUpdateForm(UserChangeForm):
         fields = ['nombre', 'apellido', 'password']
 
         widgets = {
-            'nombre': forms.TextInput(attrs={'class': 'form-control'}),  # name field of Class User
-            'apellido': forms.TextInput(attrs={'class': 'form-control'}),  # last_name field of Class User
-            'password': forms.PasswordInput(attrs={'class': 'form-control'}),  # phone field of Class User
+            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
+            'apellido': forms.TextInput(attrs={'class': 'form-control'}),
+            'password': forms.PasswordInput(attrs={'class': 'form-control'}),
         }
 
 
@@ -93,9 +93,9 @@ class ExpenseForm(forms.ModelForm):
 
         # The fields present in the form
         widgets = {
-            'nombre': forms.TextInput(attrs={'class': 'form-control'}),           # name field of Class Expense
-            'monto': forms.TextInput(attrs={'class': 'form-control'}),         # amount field of Class Expense
-            'fecha': DateInput(attrs={'class': 'form-control'}),         # amount field of Class Income
+            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
+            'monto': forms.TextInput(attrs={'class': 'form-control'}),
+            'fecha': DateInput(attrs={'class': 'form-control'}),
         }
 
     def __init__(self, user, *args, **kwargs):
@@ -109,7 +109,17 @@ class ExpenseUpdateForm(forms.ModelForm):
         fields = ['nombre', 'monto', 'fecha']
 
         widgets = {
-            'nombre': forms.TextInput(attrs={'class': 'form-control'}),           # name field of Class Expense
-            'monto': forms.TextInput(attrs={'class': 'form-control'}),         # amount field of Class Expense
-            'fecha': DateInput(attrs={'class': 'form-control'}),         # amount field of Class Income
+            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
+            'monto': forms.TextInput(attrs={'class': 'form-control'}),
+            'fecha': DateInput(attrs={'class': 'form-control'}),
+        }
+
+
+class CategoryForm(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields = ['nombre']
+
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
         }

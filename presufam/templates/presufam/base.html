@@ -28,7 +28,10 @@
 						<nav class="main">
 							<ul>
                                 {% if user.is_authenticated %}
-                                <li class="search"> <div class="meta author"> <span class="name"> {{ user.nombre }} </span>  </div> </li>
+                                <li class="search">
+									<div class="meta">
+										<a href="{% url 'presufam:profile' %}" class="author"><span class="name"> {{ user.nombre }} </span></a>
+									</div> </li>
                                 <li class="search">
 									<div class="meta">
 										<a href="{% url 'presufam:log-out' %}" class="author"><span class="name">Salir</span><img src="images/avatar.jpg" alt="" /></a>
@@ -115,16 +118,7 @@
 							bottom: 5px;
 						}
 					</style>
-					<section id="footer">
-						<ul class="icons">
-							<li><a href="#" class="fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="fa-rss"><span class="label">RSS</span></a></li>
-							<li><a href="#" class="fa-envelope"><span class="label">Email</span></a></li>
-						</ul>
-						<p class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>. Images: <a href="http://unsplash.com">Unsplash</a>.</p>
-					</section>
+
 
 			</div>
 

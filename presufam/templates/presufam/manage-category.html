@@ -1,0 +1,32 @@
+{% extends 'presufam/base.html' %}
+{% block content %}
+    <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        {% if category %}
+            <form role="form" action="{% url 'presufam:upd-category' category.id %}" method="post">
+        {% else %}
+            <form role="form" action="{% url 'presufam:add-category' %}" method="post">
+        {% endif %}
+            <div class="modal-header">
+                <h3>Agregar Categoría</h3>
+            </div>
+
+            <div class="modal-body">
+                {% csrf_token %}
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                    {{ form.as_p }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <div class="col-lg-12 text-right">
+                    <input type="submit" class="btn btn-primary" name="submit" value="Save">
+                    <button type="button" class="btn btn-default" onclick="return close_modal()">Salir</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    </div>
+{% endblock %}>

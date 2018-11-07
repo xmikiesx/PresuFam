@@ -24,13 +24,13 @@
                     <td>{{ income.nombre }}</td>
                     <td>{{ income.monto }}</td>
                     <td>{{ income.fecha }}</td>
-                    <td><a href="{% url 'presufam:upd-income' income.id %}"><i class="glyphicon glyphicon-edit"></i></a></td>
+                    <td><a href="{% url 'presufam:upd-income' income.id %}"> X </a></td>
                     <td>
                         <form action="{% url 'presufam:del-income' income.id %}" method="post" style="display: inline;">
                             {% csrf_token %}
                             <input type="hidden", name="income_id" value="{{ income.id }}">
                             <button type="submit" class="btn btn-danger btn-sm">
-                                <span class="glyphicon glyphicon-trash"></span>
+                                <span class="glyphicon glyphicon-trash"> X </span>
                             </button>
                         </form>
                     </td>

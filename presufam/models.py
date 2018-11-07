@@ -67,7 +67,7 @@ class Category(models.Model):
 class Income(models.Model):
     categoria = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
     user = models.ForeignKey(MyUser, on_delete=models.CASCADE)
-    monto = models.DecimalField(max_digits=8, decimal_places=2, validators=[MinValueValidator(0.001)])
+    monto = models.DecimalField(max_digits=7, decimal_places=2, validators=[MinValueValidator(0.001)])
     nombre = models.CharField(max_length=20, validators=[
         RegexValidator(regex='^[\w\s]*$', message='El nombre sólo puede contener letras.', code='invalid_name'),
     ])
@@ -77,7 +77,7 @@ class Income(models.Model):
 class Expense(models.Model):
     categoria = models.ForeignKey(Category, on_delete=models.CASCADE)
     user = models.ForeignKey(MyUser, on_delete=models.CASCADE)
-    monto = models.DecimalField(max_digits=8, decimal_places=2, validators=[MinValueValidator(0.001)])
+    monto = models.DecimalField(max_digits=7, decimal_places=2, validators=[MinValueValidator(0.001)])
     nombre = models.CharField(max_length=20, validators=[
         RegexValidator(regex='^[\w\s]*$', message='El nombre sólo puede contener letras.', code='invalid_name'),
     ])
