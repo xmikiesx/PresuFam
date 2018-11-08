@@ -5,7 +5,7 @@
         <field id="tpd4" name="Fecha de inicio" width="95" order="1"/>
         <field id="tpd5" name="Fecha de fin" width="95" order="2"/>
         <timeline><![CDATA[3]]></timeline>
-        <option id="color.recent"><![CDATA[#ff3300]]></option>
+        <option id="color.recent"><![CDATA[#ff3300 #3300cc]]></option>
     </view>
     <view id="resource-table">
         <field id="0" name="Nombre" width="210" order="0"/>
@@ -40,9 +40,9 @@
             <task id="9" name="Casos de Usos restantes" color="#8cb6ce" meeting="false" start="2018-10-15" duration="9" complete="0" thirdDate="2018-10-12" thirdDate-constraint="0" expand="true"/>
             <task id="11" name="Casos de Prueba" color="#8cb6ce" meeting="false" start="2018-10-15" duration="9" complete="0" thirdDate="2018-10-12" thirdDate-constraint="0" expand="true"/>
         </task>
-        <task id="13" name="Diagramas" color="#ff3300" meeting="false" start="2018-10-15" duration="9" complete="0" thirdDate="2018-10-12" thirdDate-constraint="0" expand="true"/>
-        <task id="23" name="Desarrollo Matriz de Trazabilidad" color="#8cb6ce" meeting="false" start="2018-10-15" duration="10" complete="0" thirdDate="2018-10-12" thirdDate-constraint="0" expand="true"/>
-        <task id="24" name="3ra-Presentacion" color="#8cb6ce" meeting="true" start="2018-11-08" duration="0" complete="0" thirdDate="2018-10-12" thirdDate-constraint="0" expand="true"/>
+        <task id="13" name="Diagramas" color="#3300cc" meeting="false" start="2018-10-26" duration="6" complete="0" thirdDate="2018-10-12" thirdDate-constraint="0" expand="true"/>
+        <task id="23" name="Desarrollo Matriz de Trazabilidad" color="#3300cc" meeting="false" start="2018-10-26" duration="6" complete="0" thirdDate="2018-10-12" thirdDate-constraint="0" expand="true"/>
+        <task id="24" name="3ra-Presentacion" color="#ff3300" meeting="true" start="2018-11-08" duration="0" complete="0" thirdDate="2018-10-12" thirdDate-constraint="0" expand="true"/>
     </tasks>
     <resources/>
     <allocations/>
