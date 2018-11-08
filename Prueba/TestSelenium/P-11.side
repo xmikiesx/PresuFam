@@ -1,0 +1,79 @@
+{
+  "id": "5df85688-16a0-40eb-8c0c-512f0dcc0cda",
+  "version": "1.1",
+  "name": "P-11",
+  "url": "http://127.0.0.1:8000/presufam/add-category/",
+  "tests": [{
+    "id": "f94136ba-73b5-4a3f-b56d-ff04cafcb900",
+    "name": "P-11.1",
+    "commands": [{
+      "id": "96e30ade-b3c8-41f9-b1d7-019486035337",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/presufam/add-category/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6952015b-ee46-4c17-8951-4e71962b8272",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "683x741",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ad8cafcc-446b-42a6-8224-2758b0dde838",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_nombre",
+      "targets": [
+        ["id=id_nombre", "id"],
+        ["name=nombre", "name"],
+        ["css=#id_nombre", "css"],
+        ["css=#id_nombre", "css:finder"],
+        ["xpath=//input[@id='id_nombre']", "xpath:attributes"],
+        ["xpath=//div[@id='main']/div/div/form/div[2]/div/div/p/input", "xpath:idRelative"],
+        ["xpath=//p/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "afa57e15-5d08-410f-8375-b3f9d151e008",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_nombre",
+      "targets": [
+        ["id=id_nombre", "id"],
+        ["name=nombre", "name"],
+        ["css=#id_nombre", "css"],
+        ["css=#id_nombre", "css:finder"],
+        ["xpath=//input[@id='id_nombre']", "xpath:attributes"],
+        ["xpath=//div[@id='main']/div/div/form/div[2]/div/div/p/input", "xpath:idRelative"],
+        ["xpath=//p/input", "xpath:position"]
+      ],
+      "value": "Alimentos"
+    }, {
+      "id": "fb189bb2-f9ae-48cb-95c9-8710c20797f1",
+      "comment": "",
+      "command": "click",
+      "target": "name=submit",
+      "targets": [
+        ["name=submit", "name"],
+        ["css=input[name=\"submit\"]", "css"],
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//input[@name='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='main']/div/div/form/div[3]/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "4920ee7f-edc2-4ec4-8ac8-c224a7c88fcc",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["f94136ba-73b5-4a3f-b56d-ff04cafcb900"]
+  }],
+  "urls": [],
+  "plugins": []
+}

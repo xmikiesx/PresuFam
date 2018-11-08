@@ -1,0 +1,47 @@
+{
+  "id": "6edd5f0a-d057-4897-a727-88baba73b8c9",
+  "version": "1.1",
+  "name": "P-7",
+  "url": "http://127.0.0.1:8000/presufam/income/",
+  "tests": [{
+    "id": "3430b8cf-926e-460e-bb5f-8f4cdae6a4c8",
+    "name": "P-7.1",
+    "commands": [{
+      "id": "e27027ea-2bcf-4c27-b17a-423fa0e70b62",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/presufam/income/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "db9e7c93-e7ef-414f-b740-51b61e2e6b9e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "683x741",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5e4d9edc-72d7-477d-9dd6-fddab0dedf7d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-danger",
+      "targets": [
+        ["css=.btn-danger", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='main']/div[2]/table/tbody/tr/td[5]/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "1de1e2ec-3158-46a3-9933-07694f7ecffe",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["3430b8cf-926e-460e-bb5f-8f4cdae6a4c8"]
+  }],
+  "urls": [],
+  "plugins": []
+}
