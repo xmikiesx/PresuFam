@@ -1,0 +1,16 @@
+{% extends "presufam/base.html" %}
+
+{% block content %}
+<div class="col-sm-12">
+    <div class="login-form">
+        <form method="post">
+            <h4 class="modal-title">Gestión de Egresos</h4>
+
+            {% csrf_token %}
+            {% include 'presufam/form-template.html' %}
+
+            <input type="submit" class="btn btn-success btn-block btn-lg" value="Guardar">
+        </form>
+    </div>
+</div>
+{% endblock %}

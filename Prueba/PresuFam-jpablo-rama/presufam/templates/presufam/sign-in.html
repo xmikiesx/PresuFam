@@ -1,0 +1,24 @@
+{% extends "presufam/index.html" %}
+{% block content %}
+<div class="col-sm-12">
+    <div class="col-sm-6">
+        <br>
+        <div class="login-form">
+            <form method="post">
+                <h4 class="modal-title">Ingresa a tu Cuenta</h4>
+
+                {% csrf_token %}
+                <span class="text-danger small">{{ msg }}</span>
+                {% include 'presufam/form-template.html' %}
+
+                <div class="form-group small clearfix">
+                    <label class="checkbox-inline"><input type="checkbox"> Recordarme </label>
+                    <a href="#" class="forgot-link">Olvidaste la contraseña?</a>
+                </div>
+                <input type="submit" class="btn btn-primary btn-block btn-lg" value="Sign In">
+            </form>
+            <div class="text-center small">No tienes una Cuenta? <a href="{% url 'presufam:sign-up' %}">Registrase</a></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

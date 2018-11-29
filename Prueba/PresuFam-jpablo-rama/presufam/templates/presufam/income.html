@@ -1,0 +1,42 @@
+{% extends "presufam/budget.html" %}
+
+{% block manage %}
+<h2 align="center" class="text-success fa-2x">Ingreso Total: {{ tincome.monto__sum }}</h2>
+
+<a href="{% url 'presufam:add-income' %}" class="btn btn-primary" role="button">Añadir Ingreso</a>
+<br><br>
+
+
+<div class="table-responsive">
+    <table class="table table-striped" >
+        <thead>
+            <th scope="col">#</th>
+            <th scope="col">Ingreso</th>
+            <th scope="col">Monto</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Actualizar</th>
+            <th scope="col">Eliminar</th>
+        </thead>
+        <tbody>
+            {% for income in all_income %}
+                <tr>
+                    <th>{{ forloop.counter }}</th>
+                    <td>{{ income.nombre }}</td>
+                    <td>{{ income.monto }}</td>
+                    <td>{{ income.fecha }}</td>
+                    <td><a href="{% url 'presufam:upd-income' income.id %}"> X </a></td>
+                    <td>
+                        <form action="{% url 'presufam:del-income' income.id %}" method="post" style="display: inline;">
+                            {% csrf_token %}
+                            <input type="hidden", name="income_id" value="{{ income.id }}">
+                            <button type="submit" class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-trash"> X </span>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

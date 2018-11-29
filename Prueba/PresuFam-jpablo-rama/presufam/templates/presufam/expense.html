@@ -1,0 +1,42 @@
+{% extends "presufam/budget.html" %}
+
+{% block manage %}
+<h2 align="center" class="text-success fa-2x">Egreso Total: {{ texpense.monto__sum }}</h2>
+
+<a href="{% url 'presufam:add-expense' %}" class="btn btn-primary" role="button">Añadir Egreso</a>
+<br><br>
+
+
+<div class="table-responsive">
+    <table class="table table-striped" >
+        <thead>
+            <th scope="col">#</th>
+            <th scope="col">Egreso</th>
+            <th scope="col">Monto</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Actualizar</th>
+            <th scope="col">Eliminar</th>
+        </thead>
+        <tbody>
+            {% for expense in all_expense %}
+                <tr>
+                    <th>{{ forloop.counter }}</th>
+                    <td>{{ expense.nombre }}</td>
+                    <td>{{ expense.monto }}</td>
+                    <td>{{ expense.fecha }}</td>
+                    <td><a href="{% url 'presufam:upd-expense' expense.id %}"><i class="glyphicon glyphicon-edit">X</i></a></td>
+                    <td>
+                        <form action="{% url 'presufam:del-expense' expense.id %}" method="post" style="display: inline;">
+                            {% csrf_token %}
+                            <input type="hidden", name="expense_id" value="{{ expense.id }}">
+                            <button type="submit" class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-trash">X</span>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

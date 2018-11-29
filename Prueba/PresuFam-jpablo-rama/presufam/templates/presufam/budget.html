@@ -1,0 +1,33 @@
+{% extends 'presufam/base.html' %}
+{% block content %}
+<style>
+    .ieoption ul {
+        margin-bottom: 10px;
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        color: #fff;
+    }
+
+    .ieoption li {
+        background: #aaaaaa;
+        margin-right: 5px;
+    }
+
+    .ieoption li a {
+        display: block;
+        padding: 15px 20px;
+        text-decoration: none;
+    }
+</style>
+<div class="ieoption">
+    <ul>
+        <li> <a href="{% url 'presufam:income' %}"> Ingresos </a></li>
+        <li> <a href="{% url 'presufam:expense' %}"> Egresos </a></li>
+        <li> <a href="{% url 'presufam:add-category' %}"> Categorías </a></li>
+    </ul>
+</div>
+{% block manage %}
+{% endblock %}
+{% endblock %}
